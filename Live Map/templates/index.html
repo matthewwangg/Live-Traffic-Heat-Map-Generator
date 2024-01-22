@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Traffic Flow Map</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Traffic Flow Map</h1>
+        <p class="author-label">By Matt Wang</p>
+        {% if image_path %}
+            <img src="{{ image_path }}" alt="Traffic Flow Map">
+        {% endif %}
+        <form action="{{ url_for('index') }}" method="post">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude" required>
+            <br>
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude" name="longitude" required>
+            <br>
+            <button type="submit">Generate Map</button>
+        </form>
+    </div>
+</body>
+</html>
